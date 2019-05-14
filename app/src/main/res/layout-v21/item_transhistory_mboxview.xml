@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaoxi.mbox.MBoxView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" 
+    android:layout_height="wrap_content"
+    android:background="@drawable/view_click_effect"
+    android:orientation="horizontal"
+    android:descendantFocusability="blocksDescendants">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+        
+        <TextView
+            android:id="@+id/item_history_tv_fromText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:textSize="16sp"
+            android:textColor="@color/colorText2"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginBottom="15dp"/>
+        
+        <TextView
+            android:id="@+id/item_history_tv_toText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:textSize="16sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/colorText3"/>
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@color/colorGlobalView">
+
+        <ImageButton
+            android:id="@+id/item_history_ib_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_clear_black_24dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+</com.xiaoxi.mbox.MBoxView>

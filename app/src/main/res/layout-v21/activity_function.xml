@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorGlobalBackground">
+
+    <include layout="@layout/toolbar_back_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/colorPrimary"
+        android:elevation="3dp"/>
+
+
+    <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:background="@drawable/view_rounded_corners"
+       android:elevation="2dp"
+       android:layout_marginStart="10dp"
+       android:layout_marginEnd="10dp"
+       android:layout_marginTop="10dp"
+       android:fitsSystemWindows="true">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <TextView
+               android:layout_width="0dp"
+               android:layout_height="50dp"
+               android:layout_weight="1"
+               android:paddingStart="10dp"
+               android:paddingEnd="10dp"
+               android:gravity="center|start"
+               android:text="@string/ScreenTranslation"
+               android:textSize="16sp"
+               android:textColor="@color/colorText2"/>
+
+           <Switch
+               android:id="@+id/sh_function_SF"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:layout_marginEnd="10dp"/>
+       </LinearLayout>
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:paddingStart="10dp"
+           android:paddingEnd="10dp"
+           android:paddingBottom="10dp"
+           android:textColor="@color/colorText3"
+           android:textSize="15sp"
+           android:text="@string/ScreenTranslationIntroduction"/>
+
+   </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/view_rounded_corners"
+        android:elevation="2dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:gravity="center|start"
+                android:text="@string/ClipboardTranslation"
+                android:textSize="16sp"
+                android:textColor="@color/colorText2"/>
+
+            <Switch
+                android:id="@+id/sh_function_CT"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/colorText3"
+            android:textSize="15sp"
+            android:text="@string/ClipboardTranslationIntroduction"/>
+
+    </LinearLayout>
+
+</LinearLayout>

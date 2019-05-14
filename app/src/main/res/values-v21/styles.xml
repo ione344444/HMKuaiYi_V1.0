@@ -1,0 +1,15 @@
+<resources>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="RipplePressed">
+        <!--点击后的水波纹颜色-->
+        <!--<item name="android:colorControlHighlight">@color/colorPressed</item>-->
+        <!--水波纹半径-->
+        <item name="android:radius">20dp</item>
+    </style>
+
+</resources>

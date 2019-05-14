@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_cl_present"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGlobalBackground">
+
+    <LinearLayout
+        android:id="@+id/main_llt_translate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:background="@drawable/view_rounded_corners"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--background必须引用view_redius，否则会遮挡父布局的圆角-->
+
+            <EditText
+                android:id="@+id/main_edit_fromText"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/view_rounded_corners"
+                android:gravity="start"
+                android:hint="@string/edt_hint_fromText"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="5dp"
+                android:textColor="@color/colorFromText"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/main_ib_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/colorGlobalView"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_clear_black_24dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/main_llt_toText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center|start"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center|start"
+                    android:text="@string/tv_text_translation"
+                    android:textColor="@color/colorText3"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/main_ib_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="15dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@null"
+                    android:theme="@style/RipplePressed"
+                    app:srcCompat="@drawable/ic_copy_black_24dp" />
+            </LinearLayout>
+
+            <!--background必须引用view_redius，否则会遮挡父布局的圆角-->
+            <EditText
+                android:id="@+id/main_edit_toText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/view_rounded_corners"
+                android:hint="@null"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/colorToText"
+                android:textColorHint="@color/colorText3"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_rv_transHistory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_llt_translate">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/main_fab_translating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_arrow_forward_white_36dp"
+        app:backgroundTint="#ff009688"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>

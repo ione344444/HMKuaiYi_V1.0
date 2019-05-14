@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorGlobalBackground">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:textColor="@color/colorText2"
+        android:text="@string/chooseLanguage"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorGlobalView">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine"/>
+
+        <TextView
+            android:id="@+id/dg_tv_autoDet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/AutoDet"
+            android:textColor="@color/colorText3"
+            android:background="@drawable/view_click_effect"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine"/>
+
+        <TextView
+            android:id="@+id/dg_tv_chinese"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/Chinese"
+            android:textColor="@color/colorText3"
+            android:background="@drawable/view_click_effect"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine" />
+
+        <TextView
+            android:id="@+id/dg_tv_english"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/English"
+            android:textColor="@color/colorText3"
+            android:background="@drawable/view_click_effect"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine"/>
+
+        <TextView
+            android:id="@+id/dg_tv_ap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/AP"
+            android:textColor="@color/colorText3"
+            android:background="@drawable/view_click_effect"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine"/>
+
+        <TextView
+            android:id="@+id/dg_tv_japanese"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/Japanese"
+            android:textColor="@color/colorText3"
+            android:background="@drawable/view_click_effect"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine"/>
+
+        <TextView
+            android:id="@+id/dg_tv_korean"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/Korean"
+            android:textColor="@color/colorText3"
+            android:background="@drawable/view_click_effect"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine"/>
+
+        <TextView
+            android:id="@+id/dg_tv_french"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/French"
+            android:textColor="@color/colorText3"
+            android:background="@drawable/view_click_effect"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine"/>
+
+        <TextView
+            android:id="@+id/dg_tv_russian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/Russian"
+            android:textColor="@color/colorText3"
+            android:background="@drawable/view_click_effect"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine"/>
+
+        <TextView
+            android:id="@+id/dg_tv_german"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/German"
+            android:textColor="@color/colorText3"
+            android:background="@drawable/view_click_effect"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine"/>
+
+        <TextView
+            android:id="@+id/dg_tv_chineseTraditional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/ChineseTraditional"
+            android:background="@drawable/view_click_effect"
+            android:textColor="@color/colorText3"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLine"/>
+
+    </LinearLayout>
+</LinearLayout>
