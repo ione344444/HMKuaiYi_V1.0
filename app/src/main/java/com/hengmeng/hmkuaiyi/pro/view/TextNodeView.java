@@ -64,7 +64,7 @@ public class TextNodeView extends View {
     public void addViewToContainer(FrameLayout fl_textNodesContainer){
         LayoutParams lpAddView = new LayoutParams(bound.width(),bound.height());
         lpAddView.leftMargin = bound.left;
-        lpAddView.topMargin = bound.top - ScreenInfoUtil.getStatusBarHeight(context);
+        lpAddView.topMargin = bound.top;
         lpAddView.width = bound.width();
         lpAddView.height = bound.height();
         fl_textNodesContainer.addView(this,0,lpAddView);
@@ -72,7 +72,7 @@ public class TextNodeView extends View {
 
     private void createPaint(){
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setColor(Color.parseColor("#808a87"));
+        mPaint.setColor(Color.parseColor("#BC8F8F"));
         mPaint.setStrokeWidth(4);
         // 画虚线
         mPaint.setPathEffect(new DashPathEffect(new float[]{6,6},0));

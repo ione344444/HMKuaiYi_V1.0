@@ -18,11 +18,13 @@ public class TransResultFloatWindow extends BaseFloatWindow{
 
     private String resultText;
 
+    private View floatView;
+
     private OnActionListener actionListener;
 
     @Override
     public View createFloatView(){
-        View floatView = View.inflate(context, R.layout.view_fetchtransresult,null);
+        floatView = View.inflate(context, R.layout.view_fetchtransresult,null);
 
         TextView tv_copyFromText = floatView.findViewById(R.id.dialogFT_tv_copyFromText);
         tv_copyFromText.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +63,11 @@ public class TransResultFloatWindow extends BaseFloatWindow{
         wmParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
         return wmParams;
+    }
+
+    @Override
+    public void onDestroyHide() {
+
     }
 
     public static TransResultFloatWindow getInstance(Context context) {

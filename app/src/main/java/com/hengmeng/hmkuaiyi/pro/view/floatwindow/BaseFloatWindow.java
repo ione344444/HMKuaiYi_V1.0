@@ -18,8 +18,13 @@ public abstract class BaseFloatWindow {
      * 如果没有则创建
      */
     public void show(){
+        if (isShowing){
+            return;
+        }
         createFloatWindow();
+
         windowManager.addView(floatView,wmParams);
+
         isShowing = true;
     }
 
@@ -27,6 +32,10 @@ public abstract class BaseFloatWindow {
      * 暂时隐藏悬浮窗
      */
     public void tempHide(){
+        if (!isShowing){    // 如果原本就没显示，则不需要关闭导致报错
+            return;
+        }
+
         if (windowManager != null && floatView != null){
             windowManager.removeView(floatView);
         }
@@ -43,17 +52,8 @@ public abstract class BaseFloatWindow {
         windowManager = null;
         wmParams = null;
         floatView = null;
-    }
 
-    /**
-     * 设置悬浮窗参数为createWindowParams时候的状态
-     */
-    public void recoverWindowParams(){
-        wmParams = createWindowParams();
-
-        if (windowManager != null && floatView != null){
-            windowManager.updateViewLayout(floatView,wmParams);
-        }
+        onDestroyHide();
     }
 
     /**
@@ -92,7 +92,9 @@ public abstract class BaseFloatWindow {
     /**
      * 创建悬浮窗参数交给子类实现
      *
-     * 由于recoverWindowParams()方法，最好是保证createFloatView()的职责单一
+     * 最好是保证createFloatView()的职责单一
      */
     public abstract WindowManager.LayoutParams createWindowParams();
+
+    public abstract void onDestroyHide();
 }

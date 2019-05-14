@@ -40,9 +40,6 @@ public class StartFetchFloatWindow extends BaseFloatWindow{
     private int screenWidth;
     private int screenHeight;
 
-    private WindowManager windowManager;
-    private WindowManager.LayoutParams wmParams;
-
     private View floatView;
 
     private boolean isShowing = false;
@@ -59,7 +56,7 @@ public class StartFetchFloatWindow extends BaseFloatWindow{
         floatView = View.inflate(context, R.layout.view_float_startfetching,null);
 
         if (floatView.getBackground() != null) {
-            floatView.getBackground().mutate().setAlpha(50);
+            floatView.getBackground().mutate().setAlpha(0);
         }
         else {
             Log.e(TAG,"floatView.getBackground == null!");
@@ -67,7 +64,7 @@ public class StartFetchFloatWindow extends BaseFloatWindow{
 
         View v_drag = floatView.findViewById(R.id.v_drag);
         if (v_drag.getBackground() != null) {
-            v_drag.getBackground().mutate().setAlpha(100);
+            v_drag.getBackground().mutate().setAlpha(60);
         }
         else {
             Log.e(TAG, "v_drag.getBackground() == null!");
@@ -101,6 +98,12 @@ public class StartFetchFloatWindow extends BaseFloatWindow{
         wmParams.height = NORMAL_FLOAT_HEIGHT;
 
         return wmParams;
+    }
+
+    @Override
+    public void onDestroyHide() {
+        dragAble = true;
+        isOpened = false;
     }
 
 
@@ -178,6 +181,7 @@ public class StartFetchFloatWindow extends BaseFloatWindow{
             @Override
             public void onAnimationEnd(Animator animation) {
                 isOpened = true;
+                Log.e(TAG,"onOpened");
 
                 if (actionListener != null){
                     actionListener.onDragOpened();
@@ -215,12 +219,15 @@ public class StartFetchFloatWindow extends BaseFloatWindow{
                 wmParams.width = NORMAL_FLOAT_WIDTH;
                 wmParams.height = NORMAL_FLOAT_HEIGHT;
 
-                // 主要是动画有延迟，如果在动画未结束前hide了，就会导致闪退
-                if (isShowing){
+                try {
                     windowManager.updateViewLayout(floatView,wmParams);
+                }catch (Exception e){
+                    e.printStackTrace();
                 }
 
                 isOpened = false;
+                Log.e(TAG,"onClosed");
+
                 if (actionListener != null){
                     actionListener.onDragClosed();
                 }
@@ -268,7 +275,7 @@ public class StartFetchFloatWindow extends BaseFloatWindow{
 
                         v_drag  =floatView.findViewById(R.id.v_drag);
                         vParams = new LinearLayout.LayoutParams(v_drag.getWidth(),
-                                LinearLayout.LayoutParams.MATCH_PARENT);
+                                FULL_FLOAT_HEIGHT);
 
                         lastX = (int) event.getRawX();
                         break;
@@ -286,7 +293,7 @@ public class StartFetchFloatWindow extends BaseFloatWindow{
                         int nowX = (int) event.getRawX();
                         moveX = nowX - lastX;
 
-                        vParams.height = v_drag.getHeight();
+                        vParams.height = FULL_FLOAT_HEIGHT;
                         vParams.width += moveX;
                         v_drag.setLayoutParams(vParams);
                         v_drag.requestLayout();

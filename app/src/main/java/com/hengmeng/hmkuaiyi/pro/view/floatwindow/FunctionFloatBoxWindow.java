@@ -26,9 +26,11 @@ public class FunctionFloatBoxWindow extends BaseFloatWindow{
 
     private OnActionListener actionListener;
 
+    private View floatView;
+
     @Override
     public View createFloatView() {
-        View floatView = View.inflate(context,R.layout.view_float_functionbox,null);
+        floatView = View.inflate(context,R.layout.view_float_functionbox,null);
 //        LinearLayout llt_parent = floatView.findViewById(R.id.llt_parent);
 //        // 此方法可以保证透明度不会影响到子控件
 //        llt_parent.getBackground().mutate().setAlpha(19);
@@ -60,6 +62,11 @@ public class FunctionFloatBoxWindow extends BaseFloatWindow{
         return wmParams;
     }
 
+    @Override
+    public void onDestroyHide() {
+
+    }
+
     // 用户对悬浮窗进行的动作的监听接口
     public interface OnActionListener{
         // 一般是用户点击了开始取词按钮时回调此方法
@@ -86,13 +93,6 @@ public class FunctionFloatBoxWindow extends BaseFloatWindow{
 
     private FunctionFloatBoxWindow(Context context){
         super(context);
-    }
-
-    /**
-     * 创建悬浮窗View
-     */
-    private void createFloatBoxView(){
-
     }
 
     /**
@@ -140,7 +140,7 @@ public class FunctionFloatBoxWindow extends BaseFloatWindow{
         this.actionListener = actionListener;
 
         if (floatView == null){
-            createFloatBoxView();
+            return;
         }
 
         final ImageButton ib_startFetching = floatView.findViewById(R.id.ib_startFetching);
