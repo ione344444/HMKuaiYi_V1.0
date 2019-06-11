@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/darkWhite">
+
+    <include layout="@layout/actionbar_back_title"
+        android:layout_height="?actionBarSize"
+        android:layout_width="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:padding="5dp"
+        android:background="@drawable/view_rounded_corners_white"
+        android:elevation="3dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="70"
+            android:gravity="start"
+            android:text="@string/OpenFloatWindowPermission"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_floatPer_gotoOpen"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="30"-->
+            <!--android:gravity="end"-->
+            <!--android:text="@string/GotoOpen"-->
+            <!--android:textColor="@android:color/darker_gray"-->
+            <!--android:textSize="14sp"/>-->
+
+        <ImageButton
+            android:id="@+id/ib_floatPer_gotoOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:background="@color/white"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_arrow_forward_grey_600_18dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textColor="@color/coolGray"
+        android:textSize="14sp"
+        android:text="@string/OpenFloatPermissionExplain"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/coolGray"
+        android:textSize="14sp"
+        android:text="@string/GotoFloatPerActivityErrorMsg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:padding="5dp"
+        android:background="@drawable/view_rounded_corners_white"
+        android:elevation="3dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="70"
+            android:gravity="start"
+            android:text="@string/AllowNotification"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textColor="@color/coolGray"
+        android:textSize="14sp"
+        android:text="@string/AllowNotificationExplain"/>
+
+    <Button
+        android:id="@+id/btn_nextStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="end"
+        android:textSize="16sp"
+        android:text="@string/NextStep"/>
+</LinearLayout>

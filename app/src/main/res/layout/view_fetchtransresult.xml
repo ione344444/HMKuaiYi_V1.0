@@ -16,7 +16,7 @@
         android:layout_gravity="center"
         android:layout_margin="30dp"
         android:orientation="vertical"
-        android:background="@drawable/view_rounded_corners"
+        android:background="@drawable/view_rounded_corners_white"
         android:elevation="8dp">
 
         <LinearLayout

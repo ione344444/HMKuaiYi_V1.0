@@ -2,7 +2,10 @@ package com.hengmeng.hmkuaiyi.pro.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -27,8 +30,12 @@ public abstract class BaseFinishBarActivity extends BaseActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentViewId());
+
         setFinishActionBar(getFinishBarTitle());
+
         init();
+
+        setStatusBarColor();
     }
 
     protected abstract int getContentViewId();
@@ -36,5 +43,14 @@ public abstract class BaseFinishBarActivity extends BaseActivity {
     protected abstract void init();
 
     protected abstract String getFinishBarTitle();
+
+    /**
+     * 设置状态栏颜色
+     */
+    protected void setStatusBarColor() {
+        Window window = getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.coolGray));// 冷灰色
+    }
 
 }

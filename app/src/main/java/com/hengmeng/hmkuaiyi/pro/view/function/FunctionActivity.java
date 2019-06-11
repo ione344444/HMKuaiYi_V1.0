@@ -43,8 +43,6 @@ public class FunctionActivity extends BaseFinishBarActivity implements FunctionS
      */
     @Override
     protected void init() {
-        setStatusBarColor();
-
         FunctionSettingsModelImpl model = new FunctionSettingsModelImpl(this);
         presenter = new FunctionSettingsPresenterImpl(this);
         presenter.attach(model,this);
@@ -203,14 +201,5 @@ public class FunctionActivity extends BaseFinishBarActivity implements FunctionS
                 }
             }
         });
-    }
-
-    /**
-     * 设置状态栏颜色
-     */
-    protected void setStatusBarColor() {
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.coolGray));// 冷灰色
     }
 }

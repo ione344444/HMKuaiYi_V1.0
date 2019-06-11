@@ -49,4 +49,9 @@
     <string name="Suggest_aboutAccessService_notClearProcess">当应用进程被清理时辅助服务也会随之关闭，反复开启辅助服务会使你感到繁琐，所以我强烈建议你将HM快译添加到内存清理白名单之中，HM快译不会占用你过多的内存。</string>
     <string name="OpenAccessibilityServiceMsg">屏幕取词功能需要你开启辅助服务，HM快译不会泄露你任何信息，请放心开启。</string>
     <string name="OpenedAccessibilityServiceMsg">你已开启辅助服务，现在可以使用此功能了。</string>
+    <string name="GotoOpen">去开启</string>
+    <string name="OpenFloatPermissionExplain">屏幕翻译触发器，显示翻译结果等地方需要使用到悬浮窗权限，这个权限未开启将导致功能无法使用。</string>
+    <string name="AllowNotification">允许通知</string>
+    <string name="AllowNotificationExplain">大部分手机默认是允许通知的，你无需手动去设置。不给予通知权限并不会影响正常功能，但允许通知会给你带来很多便利。比如当你觉得屏幕取词触发器妨碍了你时，你就可以在通知栏暂时关闭屏幕翻译功能。</string>
+    <string name="NextStep">下一步</string>
 </resources>

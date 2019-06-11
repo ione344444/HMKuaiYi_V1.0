@@ -29,6 +29,7 @@ import com.hengmeng.hmkuaiyi.pro.presenter.MainPresenterImpl;
 import com.hengmeng.hmkuaiyi.pro.adapter.TransHistoryAdapter;
 import com.hengmeng.hmkuaiyi.pro.view.function.FunctionActivity;
 import com.hengmeng.hmkuaiyi.pro.util.ClipboardUtil;
+import com.xiaoxi.floatpermission.FloatPerUtil;
 import com.xiaoxi.mbox.MBoxView;
 import com.xiaoxi.translate.BaiduTransApi;
 import com.xiaoxi.translate.Language;
@@ -259,7 +260,11 @@ public class MainActivity extends Activity implements MainContract.MainView {
         findViewById(R.id.main_ib_function).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, FunctionActivity.class));
+                if (FloatPerUtil.isFloatPerOpen(MainActivity.this)){
+                    startActivity(new Intent(MainActivity.this, FunctionActivity.class));
+                }else {
+                    startActivity(new Intent(MainActivity.this,ApplyPermissionActivity.class));
+                }
             }
         });
 
@@ -304,8 +309,8 @@ public class MainActivity extends Activity implements MainContract.MainView {
         edt_fromText.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_ENTER){
-                    if (event.getAction() == KeyEvent.ACTION_UP){//     只处理UP事件
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    if (event.getAction() == KeyEvent.ACTION_UP) {//     只处理UP事件
                         startTranslating();
                     }
                     // 拦截回车事件
@@ -331,7 +336,7 @@ public class MainActivity extends Activity implements MainContract.MainView {
         ib_copyToText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ClipboardUtil.setClipboardText(MainActivity.this,edt_toText.getText().toString());
+                ClipboardUtil.setClipboardText(MainActivity.this, edt_toText.getText().toString());
 
                 Toast.makeText(MainActivity.this, "复制成功", Toast.LENGTH_SHORT).show();
             }
