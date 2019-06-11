@@ -6,7 +6,7 @@ public abstract class BasePresenter<M,V> {
     private M mModel;
     private WeakReference<V> mViewRef;
 
-    public void onAttach(M model,V view){
+    public void attach(M model, V view){
         mModel = model;
         mViewRef = new WeakReference<>(view);
     }
@@ -23,7 +23,7 @@ public abstract class BasePresenter<M,V> {
         return null != mViewRef && null != mViewRef.get();
     }
 
-    protected void onDetach() {
+    public void detach() {
         if (null != mViewRef){
             mViewRef.clear();
             mViewRef = null;

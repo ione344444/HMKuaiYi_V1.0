@@ -13,7 +13,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center|start"
         android:text="@string/RelatedPreparation"
-        android:textColor="@color/colorText2"
+        android:textColor="@color/black"
         android:textSize="18sp"/>
 
     <TextView
@@ -23,17 +23,17 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:padding="5dp"
-        android:background="@color/colorGlobalBackground"
+        android:background="@color/darkWhite"
         android:text="@string/RelatedPreTip"
         android:textSize="12sp"
-        android:textColor="@color/colorText2" />
+        android:textColor="@color/black" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@color/colorGlobalView">
+        android:background="@color/white">
 
         <TextView
             android:layout_width="0dp"
@@ -41,15 +41,15 @@
             android:layout_weight="1.0"
             android:gravity="center|start"
             android:text="@string/OpenFloatWindowPermission"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/GotoSetting"
-            android:textColor="@color/colorText3"
+            android:text="@string/GotoSettings"
+            android:textColor="@color/coolGray"
             android:textSize="14sp"/>
         <ImageButton
             android:id="@+id/imageButton2"
@@ -58,7 +58,7 @@
             android:layout_gravity="center"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_navigate_next_red_300_24dp"
-            android:contentDescription="@string/GotoSetting" />
+            android:contentDescription="@string/GotoSettings" />
 
 
     </LinearLayout>
@@ -77,7 +77,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/colorGlobalView">
+        android:background="@color/white">
 
         <TextView
             android:layout_width="0dp"
@@ -85,15 +85,15 @@
             android:layout_weight="1.0"
             android:gravity="center|start"
             android:text="@string/OpenAccessibilityService"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/GotoSetting"
-            android:textColor="@color/colorText3"
+            android:text="@string/GotoSettings"
+            android:textColor="@color/coolGray"
             android:textSize="14sp"/>
         <ImageButton
             android:layout_width="wrap_content"
@@ -101,7 +101,7 @@
             android:layout_gravity="center"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_navigate_next_red_300_24dp"
-            android:contentDescription="@string/GotoSetting" />
+            android:contentDescription="@string/GotoSettings" />
 
     </LinearLayout>
 

@@ -6,7 +6,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.hengmeng.hmkuaiyi.pro.function.translate.api.TransApi;
+
+import com.xiaoxi.translate.api.TransApi;
 import com.xiaoxi.translate.bean.TransObject;
 
 import org.json.*;
@@ -59,8 +60,8 @@ public class JsonTransApi {
         // 获取翻译到的Json数据
         TransApi api =new TransApi(appid,securityKey);
         jsonResult = api.getTransResult(fromText, fromLgAbb, toLgAbb);
-//        Log.e("JsonTransApi","fromLgAbb" + fromLgAbb);
-//        Log.e("JsonTransApi","toLgAbb" + toLgAbb);
+        Log.e("JsonTransApi","fromText:" + fromText);
+        Log.e("JsonTransApi","toLgAbb" + toLgAbb);
 
         transResult = new TransObject(fromLgAbb,fromText, toLgAbb,"");
 

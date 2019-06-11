@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center|start">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@null"
+        android:src="@mipmap/ic_launcher"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_notification_openST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="@string/ScreenTranslation"
+        android:textColor="@color/coolGray"
+        android:textSize="15dp"
+        tools:ignore="SpUsage" />
+
+    <ImageView
+        android:id="@+id/iv_notification_openST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_check_box_grey_600_24dp"
+        android:background="@color/white"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:id="@+id/iv_notification_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:layout_marginEnd="10dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_close_grey_600_18dp"/>
+</LinearLayout>

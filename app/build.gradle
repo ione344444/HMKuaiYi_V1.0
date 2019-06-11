@@ -41,5 +41,5 @@ dependencies {
     implementation project(':translate')
     implementation project(':mbox')
     implementation project(':screenutil')
-    implementation(name:'floatpermission-release',ext:'aar')
+    implementation project(path: ':floatpermission')
 }

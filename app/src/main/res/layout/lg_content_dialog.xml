@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorGlobalBackground">
+    android:background="@color/darkWhite">
 
     <TextView
         android:layout_width="match_parent"
@@ -12,14 +12,14 @@
         android:gravity="center"
         android:layout_margin="10dp"
         android:textSize="16sp"
-        android:textColor="@color/colorText2"
+        android:textColor="@color/black"
         android:text="@string/chooseLanguage"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/colorGlobalView">
+        android:background="@color/white">
 
         <View
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/AutoDet"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:background="@drawable/view_click_effect"
             android:textSize="16sp"/>
 
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/Chinese"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:background="@drawable/view_click_effect"
             android:textSize="16sp"/>
 
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/English"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:background="@drawable/view_click_effect"
             android:textSize="16sp"/>
 
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/AP"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:background="@drawable/view_click_effect"
             android:textSize="16sp"/>
 
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/Japanese"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:background="@drawable/view_click_effect"
             android:textSize="16sp"/>
 
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/Korean"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:background="@drawable/view_click_effect"
             android:textSize="16sp"/>
 
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/French"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:background="@drawable/view_click_effect"
             android:textSize="16sp"/>
 
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/Russian"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:background="@drawable/view_click_effect"
             android:textSize="16sp"/>
 
@@ -152,7 +152,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/German"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:background="@drawable/view_click_effect"
             android:textSize="16sp"/>
 
@@ -168,7 +168,7 @@
             android:padding="10dp"
             android:text="@string/ChineseTraditional"
             android:background="@drawable/view_click_effect"
-            android:textColor="@color/colorText3"
+            android:textColor="@color/coolGray"
             android:textSize="16sp"/>
 
         <View

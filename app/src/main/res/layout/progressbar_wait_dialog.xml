@@ -4,11 +4,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@color/colorWaitDialog">
+    android:background="@color/coolGray">
 
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBar_waitTrans"
         style="?android:attr/progressBarStyle"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -20,5 +20,5 @@
         android:layout_gravity="center"
         android:layout_marginStart="15dp"
         android:text="@string/jsonTransApi"
-        android:textColor="@color/colorText2"/>
+        android:textColor="@color/black"/>
 </LinearLayout>

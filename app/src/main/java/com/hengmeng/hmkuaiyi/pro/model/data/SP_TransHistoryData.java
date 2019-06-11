@@ -1,9 +1,10 @@
 package com.hengmeng.hmkuaiyi.pro.model.data;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.hengmeng.hmkuaiyi.pro.bean.TransHistoryObject;
+import com.hengmeng.hmkuaiyi.pro.entity.TransHistoryObject;
 import com.xiaoxi.translate.bean.TransObject;
 
 import java.util.ArrayList;
@@ -20,24 +21,43 @@ public class SP_TransHistoryData {
     private final String KEYNAME_FROMLG_ABB = "from_lg_abb";
     private final String KEYNAME_TOLG_ABB = "to_lg_abb";
 
+    @SuppressLint("StaticFieldLeak")
+    private static SP_TransHistoryData instance;
+
     private Context context;
 
-    public SP_TransHistoryData(Context context){
+/*-********************************************** Instance **************************************************-*/
+
+    public static SP_TransHistoryData getInstance(Context context) {
+        if (instance == null){
+            synchronized (SP_TransHistoryData.class){
+                if (instance == null){
+                    instance = new SP_TransHistoryData(context);
+                }
+            }
+        }
+        return instance;
+    }
+
+/*-********************************************** 构造方法 **************************************************-*/
+
+    private SP_TransHistoryData(Context context){
         this.context = context;
     }
 
-
+/*-********************************************** public **************************************************-*/
 
     /**
      * 将翻译历史数据保存到本地（保存到末尾）的方法
+     *
      * 将原文译文保存到本地并且添加一个id，然后更新历史的数量
      *
-     * @param fromText 原文
-     * @param toText 译文
+     * 如果本地历史数据已达到最大，则剔除第一条数据，将所有数据向前移一位，
+     * 空出最后一位放入要添加的数据
+     *
+     * @param transObject TransObject对象，包含fromText,toText,fromLgAbb,toLgAbb
      */
     public void addHistoryAtEnd(TransObject transObject){
-        // 如果本地历史数据数量还未达到40，则直接在末尾添加一条历史数据
-        // 否则，先删除第一条历史数据，后一条数据替换前一条数据，以此类推，要添加的数据替换第40条数据
        if(getHistoryNum() < MAX_HISTORY_NUMBER){
            int historyId = getHistoryNum() + 1;
 
@@ -64,27 +84,10 @@ public class SP_TransHistoryData {
         setHistoryNum(getHistoryNum()-1);
     }
 
-
-    /**
-     * 该方法用于使用指定id来保存历史，会直接替换原有的历史
-     */
-    private void setHistoryUseId(int historyId, TransObject transObject){
-        // 将翻译历史保存到本地，原文，译文
-        SharedPreferences.Editor historySpEdit = context.getSharedPreferences(
-                FILENAME_HISTORY+historyId,Context.MODE_PRIVATE).edit();
-        historySpEdit.putString(KEYNAME_FROMTEXT,transObject.getFromText());
-        historySpEdit.putString(KEYNAME_TOTEXT,transObject.getToText());
-        historySpEdit.putString(KEYNAME_FROMLG_ABB,transObject.getFromLgAbb());
-        historySpEdit.putString(KEYNAME_TOLG_ABB,transObject.getToLgAbb());
-
-        historySpEdit.apply();
-    }
-
-
     /**
      * 该方法用于使用指定id来获取历史数据
      *
-     * @return 历史数据对象translationHistory.
+     * @return 历史数据对象translationHistory
      */
     public TransHistoryObject getHistoryUseId(int historyId){
         SharedPreferences historySp = context.getSharedPreferences(
@@ -94,22 +97,7 @@ public class SP_TransHistoryData {
         String fromText = historySp.getString(KEYNAME_FROMTEXT,"");
         String toText = historySp.getString(KEYNAME_TOTEXT,"");
 
-        TransHistoryObject transHistoryObject = new TransHistoryObject(historyId,
-                fromLgAbb,fromText,toLgAbb,toText);
-        return transHistoryObject;
-    }
-
-
-    /**
-     * 该方法用于保存历史的数量到本地
-     *
-     * @param number 翻译历史的数量
-     */
-    private void setHistoryNum(int number){
-        SharedPreferences.Editor historyNumSpEdit = context.getSharedPreferences(
-                FILE_HSITORY_NUMBER,Context.MODE_PRIVATE).edit();
-        historyNumSpEdit.putInt(KEY_HISTORY_NUMBER,number);
-        historyNumSpEdit.apply();
+        return new TransHistoryObject(historyId,fromLgAbb,fromText,toLgAbb,toText);
     }
 
     /**
@@ -135,4 +123,32 @@ public class SP_TransHistoryData {
         return transHistoryObjects;
     }
 
+/*-********************************************** private **************************************************-*/
+
+    /**
+     * 该方法用于保存历史的数量到本地
+     *
+     * @param number 翻译历史的数量
+     */
+    private void setHistoryNum(int number){
+        SharedPreferences.Editor historyNumSpEdit = context.getSharedPreferences(
+                FILE_HSITORY_NUMBER,Context.MODE_PRIVATE).edit();
+        historyNumSpEdit.putInt(KEY_HISTORY_NUMBER,number);
+        historyNumSpEdit.apply();
+    }
+
+    /**
+     * 该方法用于使用指定id来保存历史，会直接替换原有的历史
+     */
+    private void setHistoryUseId(int historyId, TransObject transObject){
+        // 将翻译历史保存到本地，原文，译文
+        SharedPreferences.Editor historySpEdit = context.getSharedPreferences(
+                FILENAME_HISTORY+historyId,Context.MODE_PRIVATE).edit();
+        historySpEdit.putString(KEYNAME_FROMTEXT,transObject.getFromText());
+        historySpEdit.putString(KEYNAME_TOTEXT,transObject.getToText());
+        historySpEdit.putString(KEYNAME_FROMLG_ABB,transObject.getFromLgAbb());
+        historySpEdit.putString(KEYNAME_TOLG_ABB,transObject.getToLgAbb());
+
+        historySpEdit.apply();
+    }
 }

@@ -3,7 +3,8 @@ package com.hengmeng.hmkuaiyi.pro.presenter.function;
 import android.content.Context;
 
 import com.hengmeng.hmkuaiyi.pro.contract.function.FunctionSettingsContract;
-import com.hengmeng.hmkuaiyi.pro.model.data.SP_FunctionSettingsData;
+import com.hengmeng.hmkuaiyi.pro.util.AccessibilityServiceUtil;
+import com.hengmeng.hmkuaiyi.pro.view.function.ScreenTranslatorService;
 
 public class FunctionSettingsPresenterImpl extends FunctionSettingsContract.FunctionSettingsPresenter {
     private Context context;
@@ -13,27 +14,28 @@ public class FunctionSettingsPresenterImpl extends FunctionSettingsContract.Func
     }
 
     @Override
-    public void loadClipboardOpenSettings() {
+    public void loadClipboardOpenSettingsUpdateUI() {
         getView().showClipboardTransOpen(getModel().loadClipboardTransOpenSettings());
     }
 
     @Override
-    public void loadScreenFetchOpenSettings() {
-        getView().showScreenFetchOpen(getModel().loadScreenFetchOpenSettings());
+    public void loadScreenFetchOpenSettingsUpdateUI() {
+        getView().showScreenFetchingOpen(getModel().loadScreenFetchOpenSettings()
+                && ScreenTranslatorService.instance != null);
     }
 
     @Override
-    public void saveClipboardTransSettings(boolean open) {
+    public void saveClipboardTransSettingsUpdateUI(boolean open) {
         getModel().saveClipboardTransOpenSettings(open);
+
+        getView().showClipboardTransOpen(open);
     }
 
     @Override
-    public void saveScreenFetchOpenSettings(boolean open) {
+    public void saveScreenFetchOpenSettingsUpdateUI(boolean open) {
         getModel().saveScreenFetchOpenSettings(open);
+
+        getView().showScreenFetchingOpen(open);
     }
 
-    @Override
-    public void checkPerOpenState() {
-
-    }
 }

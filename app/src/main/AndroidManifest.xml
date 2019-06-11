@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
 
     <application
         android:allowBackup="false"
@@ -15,8 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".pro.ui.main.MainActivity"
-            android:windowSoftInputMode="adjustPan"
+        <activity android:name=".pro.view.MainActivity"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +27,7 @@
         </activity>
 
         <!--clearTaskOnLaunch="true"：当activity启动时，清除其他activity-->
-        <activity android:name=".pro.ui.function.ChoiceTextActivity"
+        <activity android:name=".pro.view.function.ChoiceTextActivity"
             android:theme="@style/TransparentActivity"
             android:clearTaskOnLaunch="true"
             android:noHistory="true"
@@ -34,12 +35,15 @@
             android:exported="true"
             android:launchMode="singleInstance">
         </activity>
-        <activity android:name=".pro.ui.function.FunctionActivity"
+        <activity android:name=".pro.view.function.FunctionActivity"
             android:theme="@style/AppTheme"/>
-
+        <activity android:name=".pro.view.ApplyPermissionActivity" />
 
         <service
-            android:name=".pro.ui.function.ScreenFetchingAccessService"
+            android:name=".pro.view.function.ScreenTranslatorService">
+        </service>
+
+        <service android:name=".pro.screenfetcher.access.MyAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -49,8 +53,7 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility" />
         </service>
-        <service android:name=".pro.function.clipboardtrans.ClipboardListenerService" />
-        <service android:name=".pro.function.wordfetching.FetchFloatService" />
+        <service android:name=".pro.view.NotificationToolsBarService" />
 
     </application>
 

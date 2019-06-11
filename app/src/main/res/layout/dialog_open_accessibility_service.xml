@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OpenAccessibilityService"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/llt_parent_openAccessibilityService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/OpenAccessibilityServiceMsg"
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/Suggest_aboutAccessService_notClearProcess"
+            android:textSize="13sp"
+            android:textColor="#FF0000"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llt_parent_openedAccessibilityService"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="@string/OpenedAccessibilityServiceMsg"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end">
+
+        <TextView
+            android:id="@+id/tv_cancel_openAccessService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/Cancel"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:textColor="@drawable/textcolor_touch_effect_lavender"/>
+
+        <TextView
+            android:id="@+id/tv_openAccessibilityService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/GotoSettings"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:textColor="@drawable/textcolor_touch_effect_lavender"/>
+
+    </LinearLayout>
+
+</LinearLayout>

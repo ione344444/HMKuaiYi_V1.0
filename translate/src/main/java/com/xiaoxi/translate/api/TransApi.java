@@ -1,6 +1,7 @@
-package com.hengmeng.hmkuaiyi.pro.function.translate.api;
+package com.xiaoxi.translate.api;
 
-import com.xiaoxi.translate.api.TransUrl;
+import android.util.Log;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class TransApi {
 
     public String getTransResult(String query, String from, String to) {
 		Map<String, String> params = buildParams(query, from, to);
-        return com.hengmeng.hmkuaiyi.pro.function.translate.api.HttpGet.get(TransUrl.TRANS_API_HOST, params);
+        return HttpGet.get(TransUrl.TRANS_API_HOST, params);
     }
 
     private Map<String, String> buildParams(String query, String from, String to) {
@@ -33,7 +34,7 @@ public class TransApi {
 
         // 签名
         String src = appid + query + salt + securityKey; // 加密前的原文
-        params.put("sign", com.hengmeng.hmkuaiyi.pro.function.translate.api.MD5.md5(src));
+        params.put("sign", MD5.md5(src));
 
         return params;
     }

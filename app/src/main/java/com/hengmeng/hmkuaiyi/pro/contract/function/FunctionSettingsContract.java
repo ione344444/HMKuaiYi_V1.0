@@ -10,26 +10,21 @@ public interface FunctionSettingsContract {
     }
 
     interface FunctionSettingsView extends BaseFunctionSettingsView {
-        void showFloatPerRequestView();
-
-        void hideFloatPerRequestView();
     }
 
     abstract class FunctionSettingsPresenter extends
             BasePresenter<FunctionSettingsModel, FunctionSettingsView>{
-        // 从本地加载剪贴板翻译功能的打开状态
-        public abstract void loadClipboardOpenSettings();
+        // 从本地设置加载剪贴板翻译功能的打开状态，并更新UI
+        public abstract void loadClipboardOpenSettingsUpdateUI();
 
-        // 从本地加载屏幕取词翻译的打开状态
-        public abstract void loadScreenFetchOpenSettings();
+        // 从本地加载屏幕取词翻译的打开状态,并且辅助服务正常打开才算打开
+        public abstract void loadScreenFetchOpenSettingsUpdateUI();
 
-        // 保存剪贴板翻译功能的打开状态
-        public abstract void saveClipboardTransSettings(boolean open);
+        // 保存剪贴板翻译功能的打开状态，并更新开关打开状态
+        public abstract void saveClipboardTransSettingsUpdateUI(boolean open);
 
-        // 保存屏幕取词翻译功能的打开状态
-        public abstract void saveScreenFetchOpenSettings(boolean open);
+        // 保存屏幕取词翻译功能的打开状态，并更新开关打开状态
+        public abstract void saveScreenFetchOpenSettingsUpdateUI(boolean open);
 
-        // 检查权限开启状态
-        public abstract void checkPerOpenState();
     }
 }

@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" 
             android:textSize="16sp"
-            android:textColor="@color/colorText2"
+            android:textColor="@color/black"
             android:maxLines="1"
             android:ellipsize="end"
             android:layout_marginBottom="15dp"/>
@@ -30,7 +30,7 @@
             android:textSize="16sp"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textColor="@color/colorText3"/>
+            android:textColor="@color/coolGray"/>
         
     </LinearLayout>
     
@@ -39,7 +39,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="horizontal"
-        android:background="@color/colorGlobalView">
+        android:background="@color/white">
 
         <ImageButton
             android:id="@+id/item_history_ib_delete"

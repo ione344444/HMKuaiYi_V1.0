@@ -13,27 +13,59 @@ public class SP_LanguageSettingsData {
     private final String KEYNAME_FROM_LANGUAGEABB = "fromLgAbb";
     private final String KEYNAME_TO_LANGUAGEABB = "toLgAbb";
 
+    private static SP_LanguageSettingsData instance;
+
     private SharedPreferences languagePref;
 
-    /**
-     * 构造方法，用于获取context，并且实例化SP对象
-     *
-     * @param context  context对象
-     */
-    public SP_LanguageSettingsData(Context context){
+/*-********************************************* Instance **************************************************-*/
+
+    public static SP_LanguageSettingsData getInstance(Context context){
+        if (instance == null){
+            synchronized (SP_LanguageSettingsData.class){
+                if (instance == null){
+                    instance = new SP_LanguageSettingsData(context);
+                }
+            }
+        }
+        return instance;
+    }
+
+/*-********************************************* 构造方法 **************************************************-*/
+
+    private SP_LanguageSettingsData(Context context){
         languagePref = context.getSharedPreferences(FILENAME_LANGUAGE,Context.MODE_PRIVATE);
     }
 
-    public void saveLgData(TransObject transObject) {
-        saveFromLgData(transObject.getFromLgAbb());
-        saveToLgData(transObject.getToLgAbb());
+/*-********************************************* public **************************************************-*/
+
+    /**
+     * 保存语种设置到本地
+     *
+     * @param transObject TransObject对象，包含fromLgAbb,toLgAbb
+     */
+    public void saveLgAbbData(TransObject transObject) {
+        saveFromLgAbbData(transObject.getFromLgAbb());
+        saveToLgAbbData(transObject.getToLgAbb());
     }
+
+    /**
+     * 从本地获取目标语种设置
+     *
+     * @return TransObject对象，包含fromLgAbb,toLgAbb
+     */
+    public TransObject loadLgAbbData(){
+        TransObject transObject = new TransObject("","","","");
+        transObject.setFromLgAbb(languagePref.getString(KEYNAME_FROM_LANGUAGEABB,""));
+        transObject.setToLgAbb(languagePref.getString(KEYNAME_TO_LANGUAGEABB,""));
+        return transObject;
+    }
+
 
     /**
      * 保存源语种到本地
      *
      */
-    public void saveFromLgData(String fromLanguageAbb){
+    public void saveFromLgAbbData(String fromLanguageAbb){
         SharedPreferences.Editor languageEditor = languagePref.edit();
         languageEditor.putString(KEYNAME_FROM_LANGUAGEABB,fromLanguageAbb);
         languageEditor.apply();
@@ -43,20 +75,9 @@ public class SP_LanguageSettingsData {
      * 保存目标语种到本地
      *
      */
-    public void saveToLgData(String toLanguageAbb){
+    public void saveToLgAbbData(String toLanguageAbb){
         SharedPreferences.Editor languageEditor = languagePref.edit();
         languageEditor.putString(KEYNAME_TO_LANGUAGEABB,toLanguageAbb);
         languageEditor.apply();
-    }
-
-    /**
-     * 从本地获取目标语种
-     *
-     */
-    public TransObject getLgData(){
-        TransObject transObject = new TransObject("","","","");
-        transObject.setFromLgAbb(languagePref.getString(KEYNAME_FROM_LANGUAGEABB,""));
-        transObject.setToLgAbb(languagePref.getString(KEYNAME_TO_LANGUAGEABB,""));
-        return transObject;
     }
 }

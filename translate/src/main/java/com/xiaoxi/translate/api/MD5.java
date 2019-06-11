@@ -1,26 +1,33 @@
-package com.hengmeng.hmkuaiyi.pro.function.translate.api;
+package  com.xiaoxi.translate.api;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * MD5编码相关的类
- * 
+ *
  * @author wangjingtao
- * 
+ *
  */
-class MD5 {
+public class MD5 {
     // 首先初始化一个字符数组，用来存放每个16进制字符
     private static final char[] hexDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd',
             'e', 'f' };
 
     /**
      * 获得一个字符串的MD5值
-     * 
+     *
      * @param input 输入的字符串
      * @return 输入字符串的MD5值
-     * 
+     *
      */
-    static String md5(String input) {
+    public static String md5(String input) {
         if (input == null)
             return null;
 
@@ -35,69 +42,71 @@ class MD5 {
             byte[] resultByteArray = messageDigest.digest();
             // 字符数组转换成字符串返回
             return byteArrayToHex(resultByteArray);
-        } catch (Exception e) {
+        } catch (NoSuchAlgorithmException e) {
+            return null;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
             return null;
         }
     }
 
-//    /**
-//     * 获取文件的MD5值
-//     * 
-//     * @param file
-//     * @return
-//     */
-//    public static String md5(File file) {
-//		System.out.println("此方法开始执行");
-//        try {
-//            if (!file.isFile()) {
-//                System.err.println("文件" + file.getAbsolutePath() + "不存在或者不是文件");
-//                return null;
-//            }
-//
-//            FileInputStream in = new FileInputStream(file);
-//
-//            String result = md5(in);
-//
-//            in.closeFloat();
-//
-//            return result;
-//
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return null;
-//    }
-//
-//    public static String md5(InputStream in) {
-//
-//        try {
-//            MessageDigest messagedigest = MessageDigest.getInstance("MD5");
-//
-//            byte[] buffer = new byte[1024];
-//            int read = 0;
-//            while ((read = in.read(buffer)) != -1) {
-//                messagedigest.update(buffer, 0, read);
-//            }
-//
-//            in.closeFloat();
-//
-//            String result = byteArrayToHex(messagedigest.digest());
-//
-//            return result;
-//        } catch (NoSuchAlgorithmException e) {
-//            e.printStackTrace();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return null;
-//    }
-//
+    /**
+     * 获取文件的MD5值
+     *
+     * @param file
+     * @return
+     */
+    public static String md5(File file) {
+        try {
+            if (!file.isFile()) {
+                System.err.println("文件" + file.getAbsolutePath() + "不存在或者不是文件");
+                return null;
+            }
+
+            FileInputStream in = new FileInputStream(file);
+
+            String result = md5(in);
+
+            in.close();
+
+            return result;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static String md5(InputStream in) {
+
+        try {
+            MessageDigest messagedigest = MessageDigest.getInstance("MD5");
+
+            byte[] buffer = new byte[1024];
+            int read = 0;
+            while ((read = in.read(buffer)) != -1) {
+                messagedigest.update(buffer, 0, read);
+            }
+
+            in.close();
+
+            String result = byteArrayToHex(messagedigest.digest());
+
+            return result;
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     private static String byteArrayToHex(byte[] byteArray) {
         // new一个字符数组，这个就是用来组成结果字符串的（解释一下：一个byte是八位二进制，也就是2位十六进制字符（2的8次方等于16的2次方））
         char[] resultCharArray = new char[byteArray.length * 2];

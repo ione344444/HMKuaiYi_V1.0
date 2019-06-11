@@ -113,7 +113,6 @@ public class MBoxView extends LinearLayout {
         if (startView != null){
             setChildrenClickAble(startView,able);
         }
-
     }
 
     /**

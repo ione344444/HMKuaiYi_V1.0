@@ -6,13 +6,12 @@
     android:id="@+id/main_cl_present"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGlobalBackground">
+    android:background="@color/darkWhite">
 
     <LinearLayout
         android:id="@+id/main_llt_translate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="10dp"
@@ -44,7 +43,7 @@
                 android:hint="@string/edt_hint_fromText"
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="5dp"
-                android:textColor="@color/colorFromText"
+                android:textColor="@color/lightGreenDark"
                 android:textSize="15sp" />
 
             <ImageButton
@@ -54,9 +53,9 @@
                 android:layout_gravity="top"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
-                android:background="@color/colorGlobalView"
+                android:background="@color/white"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_clear_black_24dp" />
+                android:src="@drawable/ic_clear_black_24dp" />
         </LinearLayout>
 
 
@@ -87,7 +86,7 @@
                     android:layout_weight="1"
                     android:gravity="center|start"
                     android:text="@string/tv_text_translation"
-                    android:textColor="@color/colorText3"
+                    android:textColor="@color/coolGray"
                     android:textSize="14sp" />
 
                 <ImageButton
@@ -99,7 +98,7 @@
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@null"
                     android:theme="@style/RipplePressed"
-                    app:srcCompat="@drawable/ic_copy_black_24dp" />
+                    android:src="@drawable/ic_copy_black_24dp" />
             </LinearLayout>
 
             <!--background必须引用view_redius，否则会遮挡父布局的圆角-->
@@ -114,8 +113,8 @@
                 android:hint="@null"
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="4dp"
-                android:textColor="@color/colorToText"
-                android:textColorHint="@color/colorText3"
+                android:textColor="@color/black"
+                android:textColorHint="@color/coolGray"
                 android:textSize="17sp" />
 
         </LinearLayout>
@@ -144,6 +143,7 @@
         android:layout_gravity="bottom|end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"
         android:src="@drawable/ic_arrow_forward_white_36dp"
         app:backgroundTint="#ff009688"
         tools:ignore="MissingConstraints" />

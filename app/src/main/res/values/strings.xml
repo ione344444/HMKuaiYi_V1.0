@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">HM快译</string>
-    <string name="edt_hint_fromText">请输入要翻译的内容...（回车键开始翻译）</string>
+    <string name="edt_hint_fromText">请输入要翻译的内容..</string>
     <string name="tv_text_translation">翻译结果</string>
     <string name="tv_text_history">翻译历史</string>
     <string name="tv_text_original">原文</string>
@@ -23,20 +23,30 @@
 
     <string name="accessibility_des">用于翻译屏幕上的内容</string>
     <string name="accessibility_pge">屏幕取词（HM快译）</string>
-    <string name="delete">删除</string>
-    <string name="function">功能</string>
-    <string name="settings">设置</string>
+    <string name="Delete">删除</string>
+    <string name="Function">功能</string>
+    <string name="Settings">设置</string>
     <string name="ScreenTranslation">屏幕翻译</string>
     <string name="ScreenTranslationIntroduction">获取屏幕上的文字进行翻译</string>
     <string name="ClipboardTranslation">剪贴板翻译</string>
     <string name="ClipboardTranslationIntroduction">实时翻译系统剪贴板的内容</string>
-    <string name="back">返回</string>
+    <string name="Back">返回</string>
     <string name="RelatedPreparation">相关准备</string>
-    <string name="OpenFloatWindowPermission">1.开启悬浮窗权限</string>
-    <string name="GotoSetting">去设置</string>
-    <string name="OpenAccessibilityService">2.开启辅助服务</string>
+    <string name="OpenFloatWindowPermission">开启悬浮窗权限</string>
+    <string name="GotoSettings">去设置</string>
+    <string name="OpenAccessibilityService">开启辅助服务</string>
     <string name="RelatedPreTip">请做好下列准备工作，否则你无法正常使用此功能</string>
     <string name="FromText">原文</string>
     <string name="Copy">复制</string>
     <string name="ToText">译文</string>
+    <string name="Step1_open_floatPermission">第一步：开启悬浮窗权限</string>
+    <string name="ApplyFloatPermissionMsg">检测到你并未开启悬浮窗权限，本软件部分功能需要创建悬浮窗，是否现在去开启？</string>
+    <string name="GotoFloatPerActivityErrorMsg">如果跳转失败，请前往设置->应用管理->HM快译->权限详情中找到悬浮窗权限并开启（不同机型可能会有差别）</string>
+    <string name="OpenedFloatPermission">已经开启？</string>
+    <string name="Cancel">取消</string>
+    <string name="OpenedFloatPermissionMsg">你已经开启了悬浮窗权限，请进行下一步操作。</string>
+    <string name="StepEnd_OpenAccessibilityService">最后一步：开启辅助服务</string>
+    <string name="Suggest_aboutAccessService_notClearProcess">当应用进程被清理时辅助服务也会随之关闭，反复开启辅助服务会使你感到繁琐，所以我强烈建议你将HM快译添加到内存清理白名单之中，HM快译不会占用你过多的内存。</string>
+    <string name="OpenAccessibilityServiceMsg">屏幕取词功能需要你开启辅助服务，HM快译不会泄露你任何信息，请放心开启。</string>
+    <string name="OpenedAccessibilityServiceMsg">你已开启辅助服务，现在可以使用此功能了。</string>
 </resources>

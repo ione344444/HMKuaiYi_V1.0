@@ -1,4 +1,4 @@
-package com.hengmeng.hmkuaiyi.pro.function.translate.api;
+package  com.xiaoxi.translate.api;
 
 import java.io.BufferedReader;
 import java.io.Closeable;
@@ -26,6 +26,7 @@ class HttpGet {
     private static final String GET = "GET";
 
     static String get(String host, Map<String, String> params) {
+        HttpURLConnection conn = null;
         try {
             // 设置SSLContext
             SSLContext sslcontext = SSLContext.getInstance("TLS");
@@ -33,20 +34,14 @@ class HttpGet {
 
             String sendUrl = getUrlWithQueryString(host, params);
 
-            // System.out.println("URL:" + sendUrl);
-
             URL uri = new URL(sendUrl); // 创建URL对象
-            HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
+            conn = (HttpURLConnection) uri.openConnection();
             if (conn instanceof HttpsURLConnection) {
                 ((HttpsURLConnection) conn).setSSLSocketFactory(sslcontext.getSocketFactory());
             }
 
             conn.setConnectTimeout(SOCKET_TIMEOUT); // 设置相应超时
             conn.setRequestMethod(GET);
-            int statusCode = conn.getResponseCode();
-            if (statusCode != HttpURLConnection.HTTP_OK) {
-                System.out.println("Http错误码：" + statusCode);
-            }
 
             // 读取服务器的数据
             InputStream is = conn.getInputStream();
@@ -65,14 +60,19 @@ class HttpGet {
 
             return text;
         } catch (MalformedURLException e) {
+//            Log.e("HttpGet","MalformedURLException");
             e.printStackTrace();
         } catch (IOException e) {
+//            Log.e("HttpGet","IOException:" + e.getMessage());
             e.printStackTrace();
         } catch (KeyManagementException e) {
+//            Log.e("HttpGet","KeyManagementException");
             e.printStackTrace();
         } catch (NoSuchAlgorithmException e) {
+//            Log.e("HttpGet","NoSuchAlgorithmException");
             e.printStackTrace();
         }catch (Exception e){
+//            Log.e("HttpGet","Exception");
             e.printStackTrace();
         }
         return null;

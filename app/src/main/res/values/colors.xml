@@ -3,25 +3,19 @@
     <!--标题栏颜色-->
     <color name="colorPrimary">#ff26a69a</color>
     <!--状态栏颜色-->
-    <color name="colorPrimaryDark">#ff26a69a </color>
+    <color name="colorPrimaryDark">#000000 </color>
     <!--文本框 复选按钮 进度条等控件颜色-->
     <color name="colorAccent">#FF4081</color>
     <!--全局控件颜色-->
-    <color name="colorGlobalView">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <!--全局背景颜色-->
-    <color name="colorGlobalBackground">#F3F3F3</color>
+    <color name="darkWhite">#F3F3F3</color>
     <!--分割线颜色-->
     <color name="colorLine">#D8D8D8</color>
-    <!--控件被按下后的颜色-->
     <color name="colorPressed">#D8D8D8</color>
-    <!--原文译文文字颜色-->
-    <color name="colorFromText">#007979</color>
-    <color name="colorToText">#000000</color>
-    <!--由于背景色和用法的不同，需要几种不同的文字颜色-->
-    <color name="colorText1">#FFFFFF</color>
-    <color name="colorText2">#000000</color>
-    <color name="colorText3">#808A87</color>
-    <color name="colorText4">#DDA0DD</color>
-    <!--进度条对话框的背景色-->
-    <color name="colorWaitDialog">#FFFFFF</color>           
+    <color name="lightGreenDark">#007979</color>
+    <color name="black">#000000</color>
+    <color name="coolGray">#808A87</color>
+    <color name="skyBlue">#DDA0DD</color>
+    <color name="lavender">#DA70D6</color>
 </resources>
