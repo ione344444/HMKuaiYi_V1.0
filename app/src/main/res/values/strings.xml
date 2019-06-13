@@ -54,4 +54,5 @@
     <string name="AllowNotification">允许通知</string>
     <string name="AllowNotificationExplain">大部分手机默认是允许通知的，你无需手动去设置。不给予通知权限并不会影响正常功能，但允许通知会给你带来很多便利。比如当你觉得屏幕取词触发器妨碍了你时，你就可以在通知栏暂时关闭屏幕翻译功能。</string>
     <string name="NextStep">下一步</string>
+    <string name="System">系统</string>
 </resources>

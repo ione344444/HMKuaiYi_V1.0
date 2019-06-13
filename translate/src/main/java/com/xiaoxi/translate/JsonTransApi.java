@@ -30,8 +30,8 @@ public class JsonTransApi {
     public JsonTransApi(Context context) {
         mTransHandler = new MyTransHandler();
 
-        appid = BaiduTransApi.getAppidFromLocal(context);
-        securityKey = BaiduTransApi.getSecurityKeyFromLocal(context);
+        appid = BaiduTransApi.getAppId();
+        securityKey = BaiduTransApi.getSecurityKey();
     }
 
     /**
