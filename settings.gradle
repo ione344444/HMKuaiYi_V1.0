@@ -1,1 +1,1 @@
-include ':app', ':translate', ':mbox', ':screenutil', ':floatpermission', ':reedsolomon'
+include ':app', ':translator', ':mbox', ':screenutil', ':floatpermission', ':reedsolomon'

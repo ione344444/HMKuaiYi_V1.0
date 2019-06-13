@@ -59,7 +59,7 @@ public class MainActivity extends Activity implements MainContract.MainView {
         setStatusBarColor();
 
         // 初始化翻译功能
-        BaiduTransApi.init( BaiduAppid.APPID,BaiduAppid.SECURITYKEY);
+        BaiduTransApi.initTmp( BaiduAppid.APPID,BaiduAppid.SECURITYKEY);
 
         presenter.attach(new MainModelImpl(this),this);
         presenter.loadAllLanguageAbbUpdateUI();

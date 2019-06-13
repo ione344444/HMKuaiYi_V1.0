@@ -14,12 +14,12 @@ public class AccessibilityServiceUtil {
     /**
      * 判断辅助服务是否打开
      *
-     * @param name service.class.getCanonicalName()
+     * @param canonicalName service.class.getCanonicalName()
      */
-    public static boolean isAccessServiceOpen(Context context, String name){
+    public static boolean isAccessServiceOpen(Context context, String canonicalName){
         int accessibilityEnabled = 0;
         final String service = context.getPackageName() + "/"
-                + name;
+                + canonicalName;
         try{
             accessibilityEnabled = Settings.Secure.getInt(
                     context.getApplicationContext().getContentResolver(),

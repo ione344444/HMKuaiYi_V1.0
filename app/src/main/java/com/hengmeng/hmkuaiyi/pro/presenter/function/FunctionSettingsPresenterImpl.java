@@ -6,13 +6,7 @@ import com.hengmeng.hmkuaiyi.pro.contract.function.FunctionSettingsContract;
 import com.hengmeng.hmkuaiyi.pro.util.AccessibilityServiceUtil;
 import com.hengmeng.hmkuaiyi.pro.view.function.ScreenTranslatorService;
 
-public class FunctionSettingsPresenterImpl extends FunctionSettingsContract.FunctionSettingsPresenter {
-    private Context context;
-
-    public FunctionSettingsPresenterImpl(Context context){
-        this.context = context;
-    }
-
+public class FunctionSettingsPresenterImpl extends FunctionSettingsContract.FunctionSettingsPresenter{
     @Override
     public void loadClipboardOpenSettingsUpdateUI() {
         getView().showClipboardTransOpen(getModel().loadClipboardTransOpenSettings());
@@ -20,8 +14,7 @@ public class FunctionSettingsPresenterImpl extends FunctionSettingsContract.Func
 
     @Override
     public void loadScreenFetchOpenSettingsUpdateUI() {
-        getView().showScreenFetchingOpen(getModel().loadScreenFetchOpenSettings()
-                && ScreenTranslatorService.instance != null);
+        getView().showScreenFetchingOpen(getModel().loadScreenFetchOpenSettings());
     }
 
     @Override

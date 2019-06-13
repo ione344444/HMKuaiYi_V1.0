@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.widget.Toast;
 
+import com.hengmeng.hmkuaiyi.pro.constant.BaiduAppid;
 import com.hengmeng.hmkuaiyi.pro.contract.function.ScreenTranslatorContract;
 import com.hengmeng.hmkuaiyi.pro.entity.TextNode;
 import com.hengmeng.hmkuaiyi.pro.model.function.ScreenTranslatorModelImpl;
@@ -14,6 +15,7 @@ import com.hengmeng.hmkuaiyi.pro.screenfetcher.ScreenFetcher;
 import com.hengmeng.hmkuaiyi.pro.screenfetcher.access.AccessScreenFetcher;
 import com.hengmeng.hmkuaiyi.pro.widget.floatwindow.FetchingTriggerFloatWindow;
 import com.xiaoxi.floatpermission.FloatPerUtil;
+import com.xiaoxi.translate.BaiduTransApi;
 
 import java.util.ArrayList;
 
@@ -41,6 +43,8 @@ public class ScreenTranslatorService extends Service
     @Override
     public void onCreate() {
         instance = this;
+
+        BaiduTransApi.initTmp(BaiduAppid.APPID,BaiduAppid.SECURITYKEY);
 
         presenter = new ScreenTranslatorPresenterImpl();
         ScreenTranslatorModelImpl model = new ScreenTranslatorModelImpl(this);
@@ -148,5 +152,4 @@ public class ScreenTranslatorService extends Service
         startActivity(intent, ActivityOptions.makeCustomAnimation(this.getBaseContext(),
                 android.R.anim.fade_in,android.R.anim.fade_out).toBundle());// 淡入淡出
     }
-
 }

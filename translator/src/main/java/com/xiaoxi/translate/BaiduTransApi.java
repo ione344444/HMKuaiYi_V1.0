@@ -10,7 +10,7 @@ public class BaiduTransApi {
     /**
      * 使用翻译api时必须要调用此方法进行初始化,这个初始化是临时的
      */
-    public static void init(String appId,String securityKey) {
+    public static void initTmp(String appId, String securityKey) {
         BaiduTransApi.appId = appId;
         BaiduTransApi.securityKey = securityKey;
     }
