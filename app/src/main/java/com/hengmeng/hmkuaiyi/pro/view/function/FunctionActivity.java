@@ -3,12 +3,9 @@ package com.hengmeng.hmkuaiyi.pro.view.function;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,16 +19,15 @@ import com.hengmeng.hmkuaiyi.pro.screenfetcher.access.AccessScreenFetcher;
 import com.hengmeng.hmkuaiyi.pro.screenfetcher.access.MyAccessibilityService;
 import com.hengmeng.hmkuaiyi.pro.util.AccessibilityServiceUtil;
 import com.hengmeng.hmkuaiyi.pro.view.NotificationToolsBarService;
-import com.xiaoxi.floatpermission.FloatPerUtil;
+
+import org.w3c.dom.Text;
 
 public class FunctionActivity extends BaseFinishBarActivity implements FunctionSettingsContract.FunctionSettingsView {
     private FunctionSettingsPresenterImpl presenter;
 
-    private AlertDialog applyFloatPerDialog;
-
     private AlertDialog openAccessServiceDialog;
 
-/*-*************************************** BaseFinishBarActivity抽象方法实现 ***********************************-*/
+    /*-*************************************** BaseFinishBarActivity抽象方法实现 ***********************************-*/
 
     @Override
     protected int  getContentViewId() {
@@ -44,7 +40,7 @@ public class FunctionActivity extends BaseFinishBarActivity implements FunctionS
     @Override
     protected void init() {
         FunctionSettingsModelImpl model = new FunctionSettingsModelImpl(this);
-        presenter = new FunctionSettingsPresenterImpl(this);
+        presenter = new FunctionSettingsPresenterImpl();
         presenter.attach(model,this);
 
         // 加载复制翻译和屏幕取词功能的打开状态
@@ -62,9 +58,6 @@ public class FunctionActivity extends BaseFinishBarActivity implements FunctionS
 
     @Override
     protected void onStart() {
-        // 加载复制翻译和屏幕取词功能的打开状态
-        presenter.loadClipboardOpenSettingsUpdateUI();
-        presenter.loadScreenFetchOpenSettingsUpdateUI();
         super.onStart();
     }
 
@@ -92,10 +85,10 @@ public class FunctionActivity extends BaseFinishBarActivity implements FunctionS
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){ // open
-                    if (AccessibilityServiceUtil.isAccessServiceOpen(FunctionActivity.this,
-                                                             AccessScreenFetcher.class.getName())){
-                        openScreenFetchingFunction();
-                    }else {
+                    openScreenFetchingFunction();
+                    // 如果没开启辅助服务，引导用户开启辅助服务
+                    if (! AccessibilityServiceUtil.isAccessServiceOpen(FunctionActivity.this,
+                            MyAccessibilityService.class.getCanonicalName())){
                         showOpenAccessibilityServiceDialog();
                     }
                 }else { //  close
@@ -154,30 +147,21 @@ public class FunctionActivity extends BaseFinishBarActivity implements FunctionS
      * 对话框：提示开启辅助服务
      */
     private void showOpenAccessibilityServiceDialog(){
-        View dialogView = View.inflate(this,R.layout.dialog_open_accessibility_service,null);
+        View openAccessServiceDialogView = View.inflate(this, R.layout.dialog_open_accessibility_service, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(dialogView);
+        builder.setView(openAccessServiceDialogView);
         openAccessServiceDialog = builder.create();
         openAccessServiceDialog.setCanceledOnTouchOutside(false);
         openAccessServiceDialog.show();
 
-        final TextView tv_goto = dialogView.findViewById(R.id.tv_openAccessibilityService);
-        TextView tv_cancel = dialogView.findViewById(R.id.tv_cancel_openAccessService);
+        final TextView tv_goto = openAccessServiceDialogView.findViewById(R.id.tv_openAccessibilityService);
+        final TextView tv_cancel = openAccessServiceDialogView.findViewById(R.id.tv_cancel_openAccessService);
 
         tv_goto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_goto.setText("完成");// 点一次就设置为下一步，相比之下效果要好一点
-                if (AccessibilityServiceUtil.isAccessServiceOpen(FunctionActivity.this,
-                            MyAccessibilityService.class.getCanonicalName())){//  开启
-                    openAccessServiceDialog.dismiss();
-
-                    openScreenFetchingFunction();
-                }else {//   未开启
-                    AccessibilityServiceUtil.gotoAccessibilityService(FunctionActivity.this);
-                    Toast.makeText(FunctionActivity.this, "请找到更多已下载服务->HM快译并开启",
-                            Toast.LENGTH_LONG).show();
-                }
+                AccessibilityServiceUtil.gotoAccessibilityService(FunctionActivity.this);
+                openAccessServiceDialog.dismiss();
             }
         });
 
@@ -185,20 +169,7 @@ public class FunctionActivity extends BaseFinishBarActivity implements FunctionS
         tv_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                applyFloatPerDialog.dismiss();
-            }
-        });
-
-        // 用户可能会不小心关闭对话框，所以得在对话框关闭后判断辅助服务打开状态来更新功能打开状态
-        openAccessServiceDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                if (AccessibilityServiceUtil.isAccessServiceOpen(FunctionActivity.this,
-                            MyAccessibilityService.class.getCanonicalName())){
-                    openScreenFetchingFunction();
-                }else {
-                    closeScreenFetchingFunction();
-                }
+                openAccessServiceDialog.dismiss();
             }
         });
     }
