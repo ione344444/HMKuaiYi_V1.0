@@ -39,14 +39,14 @@ public class MainPresenterImpl extends MainContract.MainPresenter {
     }
 
     @Override
-    public void selectFromLg(String fromLgAbb) {
+    public void saveFromLgSettingsUpdateUI(String fromLgAbb) {
         getModel().saveFromLgSettings(fromLgAbb);
 
         getView().showFromLgSettings(fromLgAbb);
     }
 
     @Override
-    public void selectToLg(String toLgAbb) {
+    public void saveToLgSettingsUpdateUI(String toLgAbb) {
         getModel().saveToLgSettings(toLgAbb);
 
         getView().showToLgSettings(toLgAbb);
@@ -54,6 +54,9 @@ public class MainPresenterImpl extends MainContract.MainPresenter {
 
     @Override
     public void startTranslating(final TransObject transObject) {
+        if (transObject.getFromText().isEmpty()){
+            return;
+        }
         getModel().startTranslating(transObject, new TransListener() {
             @Override
             public void onSuccess(TransObject transResult) {

@@ -23,7 +23,6 @@ public class TextNodeView extends View {
 
     private Paint mPaint;
 
-
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);

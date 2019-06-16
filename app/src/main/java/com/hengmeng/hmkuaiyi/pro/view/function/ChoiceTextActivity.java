@@ -54,6 +54,11 @@ public class ChoiceTextActivity extends Activity implements ChoiceTextContract.C
 
         initTextNodes();
 
+        // 销毁取词悬浮窗
+        if (ScreenTranslatorService.instance != null) {
+            ScreenTranslatorService.instance.destroyTriggerFloat();
+        }
+
         handleDragParent();
     }
 

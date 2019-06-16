@@ -1,5 +1,7 @@
 package com.hengmeng.hmkuaiyi.pro.view;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -124,7 +127,7 @@ public class MainActivity extends Activity implements MainContract.MainView {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 String fromLg = (String) item.getTitle();
-                presenter.selectFromLg(Language.getLanguageAbb(fromLg));
+                presenter.saveFromLgSettingsUpdateUI(Language.getLanguageAbb(fromLg));
                 return false;
             }
         });
@@ -132,7 +135,7 @@ public class MainActivity extends Activity implements MainContract.MainView {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 String toLg = (String) item.getTitle();
-                presenter.selectToLg(Language.getLanguageAbb(toLg) );
+                presenter.saveToLgSettingsUpdateUI(Language.getLanguageAbb(toLg) );
                 return false;
             }
         });
@@ -238,24 +241,31 @@ public class MainActivity extends Activity implements MainContract.MainView {
         rv_historys.setItemAnimator(new DefaultItemAnimator());
     }
 
+
+    /**
+     * 刷新翻译历史的实现
+     */
     @Override
     public void refreshHistory(List<TransHistoryObject> historyObjects) {
         showHistory(historyObjects);
     }
 
 
-
-    // 开始翻译实现
-    private void startTranslating() {
+    /**
+     * 开始翻译的实现
+     */
+    private void startTranslating(){
         EditText edt_fromText = findViewById(R.id.main_edit_fromText);
         TransObject transObject = new TransObject(fromLgAbb,
                 edt_fromText.getText().toString(),toLgAbb,"");
         presenter.startTranslating(transObject);
     }
 
-    private void initViews() {
-        // 一些跳转按钮的监听
 
+    /**
+     * initViews
+     */
+    private void initViews() {
         // 功能界面跳转按钮
         findViewById(R.id.main_ib_function).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -293,6 +303,15 @@ public class MainActivity extends Activity implements MainContract.MainView {
                 if (popupMenuToLg != null) {
                     popupMenuToLg.show();
                 }
+            }
+        });
+
+        // 点击语种交换按钮进行源语种与目标语种的互换
+        ImageButton ib_exchangeLgSettings = findViewById(R.id.main_ib_exchange_lgSettings);
+        ib_exchangeLgSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exchangeLgSettingsTranslatingAgain();
             }
         });
 
@@ -343,7 +362,64 @@ public class MainActivity extends Activity implements MainContract.MainView {
         });
     }
 
-    // 删除一条历史数据，并且更新视图
+
+    /**
+     * 将源语种设置与目标语种设置互换的实现，并且带动画的更新UI，再次翻译
+     */
+    private void exchangeLgSettingsTranslatingAgain() {
+        final TextView tv_fromLg = findViewById(R.id.main_tv_fromLg);
+        final TextView tv_toLg = findViewById(R.id.main_tv_toLg);
+
+        String var = fromLgAbb;
+        fromLgAbb = toLgAbb;
+        toLgAbb = var;
+
+        ValueAnimator animator = ValueAnimator.ofFloat(1,0);
+        animator.setDuration(300);
+        animator.setRepeatCount(1);
+        animator.setRepeatMode(ValueAnimator.REVERSE);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float val = (float) animation.getAnimatedValue();
+
+                tv_fromLg.setAlpha(val);
+                tv_toLg.setAlpha(val);
+            }
+        });
+        animator.start();
+        // 在动画开始重复时（也就是TextView完全透明时），保存语种设置并更新UI
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                presenter.saveFromLgSettingsUpdateUI(fromLgAbb);
+                presenter.saveToLgSettingsUpdateUI(toLgAbb);
+            }
+        });
+
+        EditText edt_fromText = findViewById(R.id.main_edit_fromText);
+        presenter.startTranslating(new TransObject(
+                fromLgAbb,edt_fromText.getText().toString(),toLgAbb,""));
+    }
+
+    /**
+     * 删除一条历史数据并且更新UI的实现
+     */
     private void deleteHistory(int i,TransHistoryObject transHistoryObject) {
         if (historyAdapter  == null){
             return;

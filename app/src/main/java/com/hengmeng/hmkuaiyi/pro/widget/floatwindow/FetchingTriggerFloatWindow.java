@@ -186,6 +186,22 @@ public class FetchingTriggerFloatWindow extends BaseFloatWindow{
     }
 
 
+    /**
+     * 显示正在抓取的进度条的实现
+     */
+    public void showFetchLoading() {
+        LinearLayout llt_loading = floatView.findViewById(R.id.llt_fetchingLoading);
+        llt_loading.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * 隐藏正在抓取的进度条的实现
+     */
+    public void hideFetchLoading() {
+        LinearLayout llt_loading = floatView.findViewById(R.id.llt_fetchingLoading);
+        llt_loading.setVisibility(View.GONE);
+    }
+
 
     /**
      * 监听parent，实现抽屉效果来触发取词

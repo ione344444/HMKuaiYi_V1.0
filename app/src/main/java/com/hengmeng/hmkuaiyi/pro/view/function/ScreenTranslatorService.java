@@ -44,6 +44,7 @@ public class ScreenTranslatorService extends Service
     public void onCreate() {
         instance = this;
 
+        // 初始化翻译器
         BaiduTransApi.initTmp(BaiduAppid.APPID,BaiduAppid.SECURITYKEY);
 
         presenter = new ScreenTranslatorPresenterImpl();
@@ -105,8 +106,8 @@ public class ScreenTranslatorService extends Service
                                 public void onSuccess(ArrayList<TextNode> data) {
                                     textNodes =  data;
                                     if (triggerFloatWindow.isOpened()){
+                                        triggerFloatWindow.hideFetchLoading();
                                         startChoiceTextActivity(data);
-                                        destroyTriggerFloat();
                                     }
                                 }
 
@@ -125,10 +126,10 @@ public class ScreenTranslatorService extends Service
                     public void onDragOpened() {
                         isStartDragging = false;
 
+                        triggerFloatWindow.showFetchLoading();
                         // 该舍弃的都舍弃了，还不为空就代表成功获取到了
                         if (textNodes != null){
                             startChoiceTextActivity(textNodes);
-                            destroyTriggerFloat();
                             textNodes = null;
                         }
                     }
@@ -141,7 +142,6 @@ public class ScreenTranslatorService extends Service
                     }
                 });
     }
-    
 
     private void startChoiceTextActivity(ArrayList<TextNode> textNodes){
 

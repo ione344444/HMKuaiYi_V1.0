@@ -35,12 +35,13 @@ public interface MainContract {
         public abstract void loadAllLanguageAbbUpdateUI();
 
         // 用户选择了一个源语种后调用
-        public abstract void selectFromLg(String fromLgAbb);
+        public abstract void saveFromLgSettingsUpdateUI(String fromLgAbb);
 
         // 用户选择了一个目标语种后调用
-        public abstract void selectToLg(String toLgAbb);
+        public abstract void saveToLgSettingsUpdateUI(String toLgAbb);
 
 
+        // 开始翻译的方法
         public abstract void startTranslating(TransObject transObject);
 
 

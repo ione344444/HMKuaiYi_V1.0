@@ -56,4 +56,5 @@
     <string name="NextStep">下一步</string>
     <string name="System">系统</string>
     <string name="Finish">完成</string>
+    <string name="IsScreenFetching">正在抓取屏幕信息…</string>
 </resources>
