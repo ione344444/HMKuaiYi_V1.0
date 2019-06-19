@@ -6,10 +6,8 @@
     <color name="colorPrimaryDark">#000000 </color>
     <!--文本框 复选按钮 进度条等控件颜色-->
     <color name="colorAccent">#FF4081</color>
-    <!--全局控件颜色-->
     <color name="white">#FFFFFF</color>
-    <!--全局背景颜色-->
-    <color name="darkWhite">#F3F3F3</color>
+    <color name="darkWhite_100">#F5F5F5</color>
     <!--分割线颜色-->
     <color name="colorLine">#D8D8D8</color>
     <color name="colorPressed">#D8D8D8</color>

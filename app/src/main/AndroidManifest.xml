@@ -38,6 +38,7 @@
         <activity android:name=".pro.view.function.FunctionActivity"
             android:theme="@style/AppTheme"/>
         <activity android:name=".pro.view.ApplyPermissionActivity" />
+        <activity android:name=".pro.view.SettingsActivity" />
 
         <service
             android:name=".pro.view.function.ScreenTranslatorService">

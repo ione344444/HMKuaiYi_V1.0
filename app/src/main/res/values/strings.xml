@@ -57,4 +57,9 @@
     <string name="System">系统</string>
     <string name="Finish">完成</string>
     <string name="IsScreenFetching">正在抓取屏幕信息…</string>
+    <string name="PermissionCenter">权限中心</string>
+    <string name="Product">产品</string>
+    <string name="Share">分享</string>
+    <string name="Help">帮助</string>
+    <string name="Score">评分</string>
 </resources>

@@ -25,10 +25,8 @@ public class MainPresenterImpl extends MainContract.MainPresenter {
         String fromLgAbb = lgSettings.getFromLgAbb();
         String toLgAbb = lgSettings.getToLgAbb();
 
-        Log.e("MainPresenterImpl","fromLgAbb:" + fromLgAbb);
-        Log.e("MainPresenterImpl","toLgAbb:" + toLgAbb);
-        getView().showFromLgSettings(fromLgAbb.equals("") ? "auto" : fromLgAbb);
-        getView().showToLgSettings(toLgAbb.equals("") ? "auto" : toLgAbb);
+        getView().showFromLgSettings(fromLgAbb.isEmpty() ? "auto" : fromLgAbb);
+        getView().showToLgSettings(toLgAbb.isEmpty() ? "auto" : toLgAbb);
     }
 
 

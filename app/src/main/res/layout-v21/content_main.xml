@@ -6,7 +6,7 @@
     android:id="@+id/main_cl_present"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkWhite">
+    android:background="@color/darkWhite_100">
 
     <LinearLayout
         android:id="@+id/main_llt_translate"

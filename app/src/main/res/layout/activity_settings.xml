@@ -4,54 +4,340 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkWhite"
-    android:padding="10dp">
+    android:background="@color/darkWhite_100"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <include layout="@layout/actionbar_back_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/view_rounded_corners_white"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="?actionBarSize" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="@string/System"
-            android:textColor="@color/coolGray"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            tools:ignore="PxUsage"
-            android:background="@color/coolGray"
-            android:layout_marginTop="10dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="start|center"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp">
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!--系统-->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="权限中心"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                android:background="@drawable/view_rounded_corners_white"
+                android:orientation="vertical"
+                android:elevation="2dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="@string/System"
+                    android:textColor="@color/coolGray"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    tools:ignore="PxUsage"
+                    android:background="@color/colorLine"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <!--权限中心-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@drawable/view_click_effect"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="80"
+                        android:text="@string/PermissionCenter"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_keyboard_arrow_right_grey_600_24dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@null"
+                        android:layout_marginEnd="10dp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    tools:ignore="PxUsage"
+                    android:background="@color/colorLine"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+            </LinearLayout>
+
+            <!--功能-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/view_rounded_corners_white"
+                android:orientation="vertical"
+                android:elevation="2dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="@string/Function"
+                    android:textColor="@color/coolGray"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    tools:ignore="PxUsage"
+                    android:background="@color/colorLine"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <!--屏幕翻译-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@drawable/view_click_effect"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="80"
+                        android:text="@string/ScreenTranslation"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_keyboard_arrow_right_grey_600_24dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@null"
+                        android:layout_marginEnd="10dp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    tools:ignore="PxUsage"
+                    android:background="@color/colorLine"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <!--剪贴板翻译-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@drawable/view_click_effect"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="80"
+                        android:text="@string/ClipboardTranslation"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_keyboard_arrow_right_grey_600_24dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@null"
+                        android:layout_marginEnd="10dp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    tools:ignore="PxUsage"
+                    android:background="@color/colorLine"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+            </LinearLayout>
+
+            <!--产品-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_rounded_corners_white"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:elevation="2dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="@string/Product"
+                    android:textColor="@color/coolGray"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    tools:ignore="PxUsage"
+                    android:background="@color/colorLine"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <!--帮助-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@drawable/view_click_effect"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="80"
+                        android:text="@string/Help"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_keyboard_arrow_right_grey_600_24dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@null"
+                        android:layout_marginEnd="10dp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    tools:ignore="PxUsage"
+                    android:background="@color/colorLine"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <!--分享-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@drawable/view_click_effect"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="80"
+                        android:text="@string/Share"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    tools:ignore="PxUsage"
+                    android:background="@color/colorLine"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <!--评分-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@drawable/view_click_effect"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="80"
+                        android:text="@string/Score"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    tools:ignore="PxUsage"
+                    android:background="@color/colorLine"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            tools:ignore="PxUsage"
-            android:background="@color/coolGray"
-            android:layout_marginBottom="10dp"/>
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

@@ -23,7 +23,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:padding="5dp"
-        android:background="@color/darkWhite"
+        android:background="@color/darkWhite_100"
         android:text="@string/RelatedPreTip"
         android:textSize="12sp"
         android:textColor="@color/black" />
